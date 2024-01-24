@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:lapor_book/pages/dashboard/ProfilePage.dart';
 import 'package:lapor_book/pages/dashboard/AllLaporan.dart';
 import 'package:lapor_book/pages/dashboard/MyLaporan.dart';
-import 'package:like_button/like_button.dart';
 
 import '../../components/styles.dart';
 import '../../models/akun.dart';
@@ -98,88 +97,48 @@ class _DashboardFull extends State<DashboardFull> {
       MyLaporan(akun: akun),
       Profile(akun: akun),
     ];
-
-    final buttonSize = 30.0; // Define buttonSize according to your requirement
-
-    var scaffold2 = Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        title: Text('Lapor Book', style: headerStyle(level: 2)),
-        centerTitle: true,
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: primaryColor,
-        child: const Icon(Icons.add, size: 35),
-        onPressed: () {
-          Navigator.pushNamed(context, '/add', arguments: {
-            'akun': akun,
-          });
-        },
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: primaryColor,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        selectedItemColor: Colors.white,
-        selectedFontSize: 16,
-        unselectedItemColor: Colors.grey[800],
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard_outlined),
-            label: 'Semua',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book_outlined),
-            label: 'Laporan Saya',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outlined),
-            label: 'Profile',
-          ),
-        ],
-      ),
-      body: _isLoading
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : pages.elementAt(_selectedIndex),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // LikeButton widget included here within body or any other appropriate location
-      floatingActionButton: LikeButton(
-        size: buttonSize,
-        circleColor:
-            CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
-        bubblesColor: BubblesColor(
-          dotPrimaryColor: Color(0xff33b5e5),
-          dotSecondaryColor: Color(0xff0099cc),
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+          title: Text('Lapor Book', style: headerStyle(level: 2)),
+          centerTitle: true,
         ),
-        likeBuilder: (bool isLiked) {
-          return Icon(
-            Icons.home,
-            color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
-            size: buttonSize,
-          );
-        },
-        likeCount: 665,
-        countBuilder: (count, bool isLiked, String text) {
-          var color = isLiked ? Colors.deepPurpleAccent : Colors.grey;
-          Widget result;
-          if (count == 0) {
-            result = Text(
-              "love",
-              style: TextStyle(color: color),
-            );
-          } else {
-            result = Text(
-              text,
-              style: TextStyle(color: color),
-            );
-          }
-          return result;
-        },
-      ),
-    );
-    var scaffold = scaffold2;
-    return scaffold;
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: primaryColor,
+          child: const Icon(Icons.add, size: 35),
+          onPressed: () {
+            Navigator.pushNamed(context, '/add', arguments: {
+              'akun': akun,
+            });
+            // Navigator.pushNamed(context, '/add', arguments: Akun);
+          },
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: primaryColor,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          selectedItemColor: Colors.white,
+          selectedFontSize: 16,
+          unselectedItemColor: Colors.grey[800],
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.dashboard_outlined),
+              label: 'Semua',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.book_outlined),
+              label: 'Laporan Saya',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outlined),
+              label: 'Profile',
+            ),
+          ],
+        ),
+        body: _isLoading
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : pages.elementAt(_selectedIndex));
   }
 }

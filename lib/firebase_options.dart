@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB5cCL4FDvHijbgXnO6tp6uSykOzDEOVnY',
-    appId: '1:759114212265:web:97e2e33dc4ba88676cdab8',
-    messagingSenderId: '759114212265',
-    projectId: 'lapor-book-287e1',
-    authDomain: 'lapor-book-287e1.firebaseapp.com',
-    storageBucket: 'lapor-book-287e1.appspot.com',
-    measurementId: 'G-JWZK9645C9',
+    apiKey: 'AIzaSyDzGcZcQaV1eip5ukiGer33sabSCmGeyHU',
+    appId: '1:347681671939:web:eafee001c8ca08e5993736',
+    messagingSenderId: '347681671939',
+    projectId: 'lapor-book-be991',
+    authDomain: 'lapor-book-be991.firebaseapp.com',
+    storageBucket: 'lapor-book-be991.appspot.com',
+    measurementId: 'G-TMJNNV42P1',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDg3vXyuKhR07oVX-tFQk37wo5JLdz7K1M',
-    appId: '1:759114212265:android:4f76f49ab65bbc936cdab8',
-    messagingSenderId: '759114212265',
-    projectId: 'lapor-book-287e1',
-    storageBucket: 'lapor-book-287e1.appspot.com',
+    apiKey: 'AIzaSyCGc4pzFsAIuO4dKvCmXhPgcBUobY2iRiM',
+    appId: '1:347681671939:android:f513b806d997f0ab993736',
+    messagingSenderId: '347681671939',
+    projectId: 'lapor-book-be991',
+    storageBucket: 'lapor-book-be991.appspot.com',
   );
 }
